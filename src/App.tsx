@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FC } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import PageRenderer from './components/utils/page-renderer';
+import './assets/scss/main.scss';
+import { Layout } from './components/Common/Layout/Layout';
+import SideMenu from './components/Common/SideMenu/SideMenu';
+import Header from './components/Common/Header/Header';
 
-function App() {
+const App: FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Layout.Wrapper>
+        <Layout.SideBar>
+          <SideMenu />
+        </Layout.SideBar>
+        <Layout.Page>
+          <Header />
+          <Routes>
+            <Route path="/:page" element={<PageRenderer />} />
+            <Route index element={<Navigate to="/main" />} />
+          </Routes>
+        </Layout.Page>
+      </Layout.Wrapper>
+    </Router>
   );
-}
+};
 
 export default App;
