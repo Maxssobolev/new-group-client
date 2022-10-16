@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { SCHeader } from './Header.styles';
 import GroupSelection from './GroupSelection/GroupSelection';
-import Notifications from './Notifications/Notifications';
-import Theme from './Theme/Theme';
+
 import Search from './Search/Search';
+import Profile from './Profile/Profile';
 
 const Header: FC = () => {
   return (
@@ -12,8 +12,7 @@ const Header: FC = () => {
         <Search />
       </SCHeader.Search>
       <SCHeader.Buttons>
-        <Notifications />
-        <Theme />
+        <Profile />
         <GroupSelection />
       </SCHeader.Buttons>
     </SCHeader.Wrapper>

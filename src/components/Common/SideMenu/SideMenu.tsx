@@ -4,10 +4,11 @@ import logoIcon from '../../../assets/img/logo.png';
 import { Link, NavLink } from 'react-router-dom';
 
 const tabs = [
+  { title: 'Профиль', href: '/lk' },
   { title: 'Главная страница', href: '/main' },
   { title: 'Расписание', href: '/timetable' },
   { title: 'Домашние задания', href: '/tasks' },
-  { title: 'Предметы', href: '/subjects' },
+  //{ title: 'Предметы', href: '/subjects' },
 ];
 
 const SideMenu: FC = () => {

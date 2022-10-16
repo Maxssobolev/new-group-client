@@ -3,3 +3,126 @@
 input {
   box-sizing: border-box;
 }
+
+.no-border {
+  border: 0 !important;
+}
+
+.swal2-close:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.swal-html {
+  font-weight: 600 !important;
+  margin-top: 0 !important;
+  padding: 20px !important;
+}
+
+:root {
+  --toastify-z-index: 9999123913123 !important;
+}
+
+// костыляем чутка
+
+.two-columns-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 15px;
+}
+
+.radio {
+  // RADIO
+  --background: white;
+  --radio: var(--radio-color);
+  --radio-checked: var(--radio-color);
+  --radio-size: 16px;
+
+  input[type='radio'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    height: var(--radio-size);
+    width: var(--radio-size);
+    outline: none;
+    margin: 0 10px 0 0;
+    cursor: pointer;
+    border: 2px solid var(--radio);
+    &.radio_red {
+      border-color: red;
+    }
+    background: transparent;
+    border-radius: 50%;
+    display: flex;
+    justify-self: end;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: border 0.5s ease;
+
+    &::before,
+    &::after {
+      content: '';
+      display: flex;
+      justify-self: center;
+      border-radius: 50%;
+    }
+    &::before {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: var(--background);
+      z-index: 1;
+      opacity: var(--opacity, 1);
+    }
+    &::after {
+      position: relative;
+      width: calc(100% / 1.5);
+      height: calc(100% / 1.5);
+      background: var(--radio-checked);
+      top: var(--y, 100%);
+      transition: top 0.5s cubic-bezier(0.48, 1.97, 0.5, 0.63);
+    }
+    &.radio_red {
+      &:after {
+        background: red;
+      }
+    }
+    &:checked {
+      --radio: var(--radio-checked);
+      &::after {
+        --y: 0;
+        animation: stretch-animate 0.3s ease-out 0.17s;
+      }
+      &::before {
+        --opacity: 0;
+      }
+      ~ input[type='radio'] {
+        &::after {
+          --y: -100%;
+        }
+      }
+    }
+    &:not(:checked) {
+      &::before {
+        --opacity: 1;
+        transition: opacity 0s linear 0.5s;
+      }
+    }
+  }
+
+  @keyframes stretch-animate {
+    0% {
+      transform: scale(1, 1);
+    }
+    28% {
+      transform: scale(1.15, 0.85);
+    }
+    50% {
+      transform: scale(0.9, 1.1);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+}

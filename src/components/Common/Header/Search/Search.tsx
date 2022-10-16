@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Inputs } from '../../UI/input';
+import { Inputs } from '../../UI/search';
 import { SCHeader } from '../Header.styles';
 
 const Search: FC = () => {

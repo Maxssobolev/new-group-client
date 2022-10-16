@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-export const Header = styled.div<{ size?: 's' | 'm' | 'l' | 'xl'; bold?: boolean }>`
+export const Header = styled.div<{ size?: 's' | 'm' | 'l' | 'xl'; bold?: boolean; withSort?: boolean }>`
+  ${props => (props.withSort ? { display: 'flex', alignItems: 'center' } : {})}
   color: var(--black);
   font-weight: ${props => (props.bold ? 700 : 500)};
   font-size: ${props => {
@@ -38,5 +39,18 @@ export const SubHeader = styled.span<{ size?: 's' | 'm' | 'l' | 'xl'; bold?: boo
   color: var(--accent);
   margin-left: 10px;
   font-weight: ${props => (props.bold ? 700 : 500)};
-  font-size: 0.85em;
+  font-size: ${props => {
+    switch (props.size) {
+      case 's':
+        return 'var(--fz-small)';
+      case 'm':
+        return 'var(--fz-medium)';
+      case 'l':
+        return 'var(--fz-large)';
+      case 'xl':
+        return 'var(--fz-extra-large)';
+      default:
+        return '0.85em';
+    }
+  }};
 `;

@@ -4,6 +4,9 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 295px 1fr;
   height: 100vh;
+  @media (max-width: 1150px) {
+    grid-template-columns: 250px 1fr;
+  }
 `;
 
 const Page = styled.main`
@@ -11,6 +14,10 @@ const Page = styled.main`
   display: grid;
   grid-template-rows: 94px 1fr;
   padding: 0 45px 0 50px;
+  background-color: rgba(0, 24, 34, 0.01);
+  @media (max-width: 1440px) {
+    padding: 0 25px 0 30px;
+  }
 `;
 
 const PageContent = styled.div`

@@ -7,6 +7,14 @@ body {
   line-height: 1;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+p {
+  margin: 0;
+}
+
 input:not([type='checkbox']):not([type='radio']),
 textarea,
 select {
@@ -113,10 +121,13 @@ input[type='number'] {
 }
 
 :root {
-  --sc-box-shadow: 0 2px 6px rgb(0 0 0 / 7%);
+  //--sc-box-shadow: 0 1px 3px rgb(0 0 0 / 7%);
+  //--sc-box-shadow: 0px 3px 20px rgba(37, 77, 113, 0.08);
+  --sc-box-shadow: 0px 0px 30px rgba(37, 77, 113, 0.06);
 
   // цвета
   --accent: #5794da;
+  --gray-blue: #eef3ff;
   --blue-light: #a3c4ed;
   --accent-light: #c0dcfc;
   --black: #212121;
@@ -156,9 +167,10 @@ input[type='number'] {
   /*-END showmore btn*/
 
   // fontsize 1rem = 14px !!!
+  --fz-extra-small: 1.14rem; // 16px
   --fz-small: 1.28rem; // 18px
   --fz-medium: 1.42rem; // 20px
-  --fz-large: 2.28rem; // 32px
+  --fz-large: 2rem; // 28px
   --fz-extra-large: 1rem;
 
   // mobile
